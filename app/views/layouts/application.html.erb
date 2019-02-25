@@ -15,8 +15,8 @@
   <%# The body tag needs those classes %>
   <body class="d-flex flex-column h-100 pt-5">
     <header>
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">ggHUB</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -27,34 +27,27 @@
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
+              <a class="nav-link" href="#">Tournamets</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              <a class="nav-link" href="#">Teams</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Players</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Profile</a>
             </li>
           </ul>
         </div>
       </nav>
     </header>
 
-    <main role="main" class="shrink-flex-0">
-      <div class="container">
-       <%= yield %>
-      </div>
+    <main role="main" class="shrink-flex-0 mb-5">
+      <%= yield %>
     </main>
 
-    <footer class="footer mt-auto py-3">
+    <footer class="footer mt-auto py-3 navbar-dark bg-dark">
       <div class="container">
         <span class="text-muted">Sticky footer test</span>
       </div>
