@@ -1,0 +1,22 @@
+<%= form_with(model: learn, local: true) do |form| %>
+  <% if learn.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(learn.errors.count, "error") %> prohibited this learn from being saved:</h2>
+
+      <ul>
+      <% learn.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :wow %>
+    <%= form.text_field :wow %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
