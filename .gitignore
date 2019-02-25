@@ -31,4 +31,6 @@
 /config/master.key
 
 /bootstrap-*
-/.DS_Store
+/MDB-*
+
+.DS_Store

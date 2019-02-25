@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<%# The html tag need this class %>
+<html class="h-100">
   <head>
     <title>Gghub</title>
     <%= csrf_meta_tags %>
@@ -11,7 +12,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <%# The body tag needs those classes %>
+  <body class="d-flex flex-column h-100">
+
     <%= yield %>
   </body>
 </html>
