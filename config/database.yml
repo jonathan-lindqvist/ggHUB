@@ -20,6 +20,13 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+# production:
+#   <<: *default
+#   database: db/production.sqlite3
+
+#heroku production
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: gghub_production
+  username: gghub
+  password: <%= ENV['GGHUB_DATABASE_PASSWORD'] %>
