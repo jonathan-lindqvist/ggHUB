@@ -49,10 +49,11 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", user_path(@user), count: 0
   end
 
-  # TODO: Get this test to work, FILL_IN is the problem
+  # TODO: Get this test to work, FILL_IN is the problem, dont know that what should replace FILL_IN
   # test "login with remembering" do
   #   log_in_as(@user, remember_me: '1')
-  #   assert_equal FILL_IN, assigns(:user).FILL_IN
+  #   byebug
+  #   assert_equal '1', @user.remember_me
   # end
 
   test "login without remembering" do
