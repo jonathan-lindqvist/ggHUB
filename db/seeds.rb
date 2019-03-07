@@ -24,3 +24,11 @@ User.create!(name:  "Example User",
     activated: true,
     activated_at: Time.zone.now)
 end
+
+User.create!(name:  "Example User",
+  email: "exampl12312312312e@railstutorial.org",
+  password:              "foobar",
+  password_confirmation: "foobar",
+  admin:     true,
+  activated: false,
+  activated_at: nil)
