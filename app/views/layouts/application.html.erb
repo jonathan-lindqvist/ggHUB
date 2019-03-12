@@ -1,15 +1,72 @@
 <!DOCTYPE html>
-<html>
+<%# The html tag need this class %>
+<html class="h-100">
   <head>
     <title>Gghub</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <%# The body tag needs those classes %>
+  <body class="d-flex flex-column h-100 pt-5">
+    <header>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">ggHUB</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tournamets</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Teams</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users">Players</a>
+            </li>
+          </ul>
+          <% if logged_in? %>
+          <ul class="navbar-nav">
+            <li class="nav-item nav-link">
+              <%= link_to "Profile", current_user, class: 'nav-link' %>
+            </li>
+            <li class="nav-item nav-link">
+              <%= link_to "Log out", logout_path, method: :delete, class: 'nav-link' %>
+            </li >
+          </ul>
+          <% else %>
+          <ul class="navbar-nav">
+            <li class="nav-item nav-link"><%= link_to "Log in", login_path, class: 'nav-link' %></li>
+            <li class="nav-item nav-link"><%= link_to "Register", signup_path, class: 'nav-link' %></li>
+          </ul>
+          <% end %>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main" class="shrink-flex-0 mb-5 mt-5">
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+      <% end %>
+      <%= yield %>
+      <%= debug(params) if Rails.env.development? %>
+    </main>
+
+    <footer class="footer mt-auto py-3 navbar-dark bg-dark">
+      <div class="container">
+        <span class="text-muted">Sticky footer test</span>
+      </div>
+    </footer>
   </body>
 </html>

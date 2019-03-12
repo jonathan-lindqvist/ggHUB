@@ -1,0 +1,12 @@
+<div class="container-fluid">
+  <% provide(:title, 'All players') %>
+  <h1>All players</h1>
+
+  <%= will_paginate(@users, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+
+  <ul class="users">
+    <%= render @users %>
+  </ul>
+
+ <%= will_paginate(@users, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+</div>
