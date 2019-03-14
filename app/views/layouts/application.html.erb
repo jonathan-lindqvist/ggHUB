@@ -44,6 +44,7 @@
             <li class="nav-item nav-link">
               <%= link_to "Log out", logout_path, method: :delete, class: 'nav-link' %>
             </li >
+             <li><%= link_to "Settings", edit_user_path(current_user) %></li>
           </ul>
           <% else %>
           <ul class="navbar-nav">

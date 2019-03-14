@@ -8,9 +8,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
   end
 
   test "profile display" do
-    #byebug
-    #get user_path(@user)
-    get "/users/#{@user.id}"
+    get user_path(@user)
     assert_template 'users/show'
     assert_select 'title', full_title(@user.name)
     assert_select 'h1', text: @user.name
