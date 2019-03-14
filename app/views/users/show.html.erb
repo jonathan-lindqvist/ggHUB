@@ -8,6 +8,7 @@
           <%= @user.name %>
         </h1>
       </section>
+      <p><%= link_to "Settings", edit_user_path(current_user) %></p>
     </aside>
     <div class="col-md-8">
       <% if @user.microposts.any? %>
