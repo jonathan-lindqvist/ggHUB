@@ -46,8 +46,6 @@ gem 'mini_magick',             '4.7.0'
 group :production do
   gem 'pg'
   gem 'fog'
-group :production do
-  gem 'pg'
 end
 
 group :development, :test do
