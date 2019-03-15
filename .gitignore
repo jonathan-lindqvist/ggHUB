@@ -32,4 +32,9 @@
 
 .DS_Store
 
+<<<<<<< HEAD
 /public/uploads
+=======
+# Ignore uploaded test images.
+/public/uploads
+>>>>>>> 49ac8aee04b6e32b38f35118345ac51a781b850b
