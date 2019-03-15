@@ -2,7 +2,7 @@
 <%# The html tag need this class %>
 <html class="h-100">
   <head>
-    <title>Gghub</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -44,6 +44,7 @@
             <li class="nav-item nav-link">
               <%= link_to "Log out", logout_path, method: :delete, class: 'nav-link' %>
             </li >
+             <li><%= link_to "Settings", edit_user_path(current_user) %></li>
           </ul>
           <% else %>
           <ul class="navbar-nav">
