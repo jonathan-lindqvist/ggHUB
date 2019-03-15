@@ -11,8 +11,16 @@
     </div>
   </div>
   <div class="row justify-content-around">
-    <div class="col-2">
-      <p class=" mt-2">Lorem saIUDghasijudasjuhdi sadjgsdaslk  jhasjkdhajkhs asjhdjsahdasl sad Lorem saIUDghasijudasjuhdi sadjgsdaslk  jhasjkdhajkhs asjhdjsahdasl sad Lorem saIUDghasijudasjuhdi sadjgsdaslk  jhasjkdhajkhs asjhdjsahdasl sad Lorem saIUDghasijudasjuhdi sadjgsdaslk  jhasjkdhajkhs asjhdjsahdasl sad Lorem saIUDghasijudasjuhdi sadjgsdaslk  jhasjkdhajkhs asjhdjsahdasl sad Lorem saIUDghasijudasjuhdi sadjgsdaslk  jhasjkdhajkhs asjhdjsahdasl sad </p>
+    <div class="col-2 column">
+      <% @players.each do |player| %>
+        <% if player.activated != false%>
+          <%= link_to gravatar_for(player, size: 30), player %>
+          <p><a href="/users/<%=player.id%>"><%=player.name%></a></p>
+        <% else %>
+          <%= gravatar_for(player, size: 30) %>
+          <p style="color:gray;"><%=player.name%></p>
+        <% end %>
+      <% end %>
     </div>
     <div class="col-6">
       <!-- TODO: move this to feed -->
