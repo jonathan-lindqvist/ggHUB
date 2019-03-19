@@ -10,6 +10,7 @@ User.create!(name:  "Example User",
   password:              "foobar",
   password_confirmation: "foobar",
   admin:     true,
+  role: "Admin",
   activated: true,
   activated_at: Time.zone.now)
 
@@ -30,6 +31,7 @@ User.create!(name:  "Example User",
   password:              "foobar",
   password_confirmation: "foobar",
   admin:     true,
+  role: "Admin",
   activated: false,
   activated_at: nil)
 
