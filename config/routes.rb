@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
+  get '/feed', to: 'microposts#index'
+
   resources :users do
     member do
       get :following, :followers
