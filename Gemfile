@@ -43,6 +43,9 @@ gem 'bootstrap-will_paginate'
 gem 'carrierwave',             '1.2.2'
 gem 'mini_magick',             '4.7.0'
 
+# Rubocop for linting
+gem 'rubocop', '~> 0.66.0', require: false
+
 group :production do
   gem 'pg'
   gem 'fog'
