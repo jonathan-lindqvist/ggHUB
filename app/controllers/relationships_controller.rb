@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Used to controller the relationship between users and microposts
 class RelationshipsController < ApplicationController
   before_action :logged_in_user
 

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Validates microposts and fixes relation and enusres picture size
 class Micropost < ApplicationRecord
   belongs_to :user
   default_scope -> { order(created_at: :desc) }
@@ -8,10 +11,8 @@ class Micropost < ApplicationRecord
 
   private
 
-    # Validates the size of an uploaded picture.
-    def picture_size
-      if picture.size > 5.megabytes
-        errors.add(:picture, "should be less than 5MB")
-      end
-    end
+  # Validates the size of an uploaded picture.
+  def picture_size
+    errors.add(:picture, 'should be less than 5MB') if picture.size > 5.megabytes
+  end
 end
