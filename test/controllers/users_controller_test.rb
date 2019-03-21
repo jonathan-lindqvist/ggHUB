@@ -46,12 +46,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should not allow the admin attribute to be edited via the web" do
     log_in_as(@other_user)
-    assert_not @other_user.admin?
+    assert_not @other_user.role == "Admin"
     patch user_path(@other_user), params: {
                                     user: { password:              'password',
                                             password_confirmation: 'password',
-                                            admin: 1 } }
-    assert_not @other_user.admin?
+                                            role: "Admin" } }
+    assert_not @other_user.role == "Admin"
   end
 
   test "should redirect destroy when not logged in" do
