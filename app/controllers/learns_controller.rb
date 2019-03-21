@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
+# useless
 class LearnsController < ApplicationController
-  before_action :set_learn, only: [:show, :edit, :update, :destroy]
+  before_action :set_learn, only: %i[show edit update destroy]
 
   # GET /learns
   # GET /learns.json
@@ -9,8 +12,7 @@ class LearnsController < ApplicationController
 
   # GET /learns/1
   # GET /learns/1.json
-  def show
-  end
+  def show; end
 
   # GET /learns/new
   def new
@@ -18,8 +20,7 @@ class LearnsController < ApplicationController
   end
 
   # GET /learns/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /learns
   # POST /learns.json
@@ -62,13 +63,14 @@ class LearnsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_learn
-      @learn = Learn.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def learn_params
-      params.require(:learn).permit(:wow)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_learn
+    @learn = Learn.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def learn_params
+    params.require(:learn).permit(:wow)
+  end
 end

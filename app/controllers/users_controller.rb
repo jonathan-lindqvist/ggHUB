@@ -2,9 +2,9 @@
 
 # Validates, CRUD for users
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
-                                        :following, :followers]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :logged_in_user, only: %i[index edit update destroy
+                                          following followers]
+  before_action :correct_user,   only: %i[edit update]
   before_action :admin_user,     only: :destroy
 
   def index
@@ -14,7 +14,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
+    # rubocop:disable Style/AndOr
     redirect_to users_url and return unless @user.activated
+    # rubocop:enable Style/AndOr
   end
 
   def new
@@ -35,12 +37,14 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
+    # rubocop:disable Rails/ActiveRecordAliases
     if @user.update_attributes(user_params)
       flash[:success] = 'Profile updated'
       redirect_to @user
     else
       render 'edit'
     end
+    # rubocop:enable Rails/ActiveRecordAliases
   end
 
   def destroy

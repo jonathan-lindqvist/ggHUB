@@ -1,6 +1,9 @@
 Rails:
   Enabled: true
 
+Rails/InverseOf:
+  Enabled: false
+
 Style/Encoding:
   Enabled: false
 
@@ -9,6 +12,7 @@ Style/GuardClause:
 
 Style/ClassAndModuleChildren:
   Enabled: false
+
 
 Metrics/AbcSize:
   Enabled: false
@@ -39,3 +43,5 @@ AllCops:
     - './db/schema.rb'
     - './config/**/*'
     - './bin/*'
+    - 'Rakefile'
+    - 'config.ru'
