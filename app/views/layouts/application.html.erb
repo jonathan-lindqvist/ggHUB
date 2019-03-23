@@ -63,7 +63,9 @@
 
     <main role="main" class="shrink-flex-0 mb-5 mt-5">
       <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+        <div class="d-flex justify-content-center container">
+          <%= content_tag(:div, message, class: "alert alert-#{message_type} w-100") %>
+        </div>
       <% end %>
       <%= yield %>
       <%= debug(params) if Rails.env.development? %>
