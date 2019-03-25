@@ -2,10 +2,10 @@
 
 # Validates, CRUD for users
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: %i[index edit update destroy
+  before_action :logged_in_user, only: %i[index edit update destroy show
                                           following followers]
   before_action :correct_user,   only: %i[edit update]
-  before_action :admin_user,     only: :destroy
+  before_action :admin_user,     only: %i[destroy roleupdate]
 
   def index
     @users = User.where(activated: true).paginate(page: params[:page])
@@ -67,10 +67,20 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+  def roleupdate
+    user = User.find(params[:id])
+    # rubocop:disable Rails/ActiveRecordAliases
+    if user.update_attributes(user_params)
+      flash[:success] = 'Profile updated'
+      redirect_to user
+    end
+    # rubocop:enable Rails/ActiveRecordAliases
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password,
+    params.require(:user).permit(:name, :email, :password, :role,
                                  :password_confirmation)
   end
 
