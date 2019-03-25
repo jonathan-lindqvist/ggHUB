@@ -12,7 +12,7 @@ The primary goal with ggHUB for me is to learn, I have worked in Rails before bu
 2. Make sure you have the Ruby on Rails gem, otherwise run: `gem install rails`
 3. You now need to navigate to the directory and run: `bundle install`
 4. Now you can finally run: `rails s`
-5. The site can now be accessed at [localhost:3000](localhost:3000) 
+5. The site can now be accessed at localhost:3000
 
 If you want to fake users on the site you can run: `rails db:migrate:reset` and then `rails db:seed`.
 
