@@ -1,4 +1,6 @@
 # ggHUB
+Site: [https://gghub.herokuapp.com/](https://gghub.herokuapp.com/)
+
 [![Inline docs](http://inch-ci.org/github/itggot-jonathan-lindqvist/gghub.svg?branch=master)](http://inch-ci.org/github/itggot-jonathan-lindqvist/gghub)
 Tournament site for your needs! :^)
 Can be used for siege, rocket leauge and many more!
@@ -20,3 +22,6 @@ I have used rubocop before and I feel like it improves my code, it makes my code
 
 ### How to run it
 Assuming you have followed the instructions in [Run it locally](##-run-it-locally) you can just run: `rake rubocop`
+
+## Contribute to ggHUB
+All you have to do is fork it and create a pull request :)
