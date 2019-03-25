@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row justify-content-around">
-    <div class="col-2">
+    <div class="col-2 pl-0">
       <h5>New Players</h5>
     </div>
     <div class="col-6">
@@ -11,25 +11,29 @@
     </div>
   </div>
   <div class="row justify-content-around">
-    <div class="col-2 column">
+    <div class="col-2 column list-group">
       <% @players.each do |player| %>
         <% if player.activated != false%>
-          <%= link_to gravatar_for(player, size: 30), player %>
-          <p><a href="/users/<%=player.id%>"><%=player.name%></a></p>
+          <a href="/users/<%=player.id%>" class="list-group-item list-group-item-action">
+            <%= gravatar_for player, size: 30 %>
+            <%= player.name %>
+          </a>
         <% else %>
-          <%= gravatar_for(player, size: 30) %>
-          <p style="color:lightgray;"><%=player.name%></p>
+          <p class="list-group-item text-muted">
+            <%= disabled_gravatar_for(player, size: 30) %>
+            <%= player.name %>
+          </p>
         <% end %>
       <% end %>
     </div>
     <div class="col-6">
-      <div class="jumbotron">
+      <div class="jumbotron shadow-sm">
         <h1 class="display-4">Hello, world!</h1>
         <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
         <hr class="my-4">
         <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
         <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+          <a class="btn btn-primary btn-lg shadow-sm" href="#" role="button">Learn more</a>
         </p>
       </div>  
       <div class="jumbotron">

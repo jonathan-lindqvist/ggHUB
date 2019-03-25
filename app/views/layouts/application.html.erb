@@ -15,7 +15,7 @@
   <%# The body tag needs those classes %>
   <body class="d-flex flex-column h-100 pt-5">
     <header>
-      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar shadow fixed-top navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="/">ggHUB</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -63,7 +63,9 @@
 
     <main role="main" class="shrink-flex-0 mb-5 mt-5">
       <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+        <div class="d-flex justify-content-center container">
+          <%= content_tag(:div, message, class: "alert alert-#{message_type} w-100") %>
+        </div>
       <% end %>
       <%= yield %>
       <%= debug(params) if Rails.env.development? %>

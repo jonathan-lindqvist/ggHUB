@@ -2,7 +2,7 @@
 
 # Used to valited the user when reseting the password for the user
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: %i[create destroy]
+  before_action :logged_in_user, only: %i[index create destroy]
   before_action :correct_user,   only: :destroy
 
   def index
