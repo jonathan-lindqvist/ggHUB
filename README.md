@@ -24,4 +24,4 @@ I have used rubocop before and I feel like it improves my code, it makes my code
 Assuming you have followed the instructions in [Run it locally](##run-it-locally) you can just run: `rake rubocop`
 
 ## Contribute to ggHUB
-All you have to do is fork it and create a pull request :)
+All you have to do is fork it, create a feature branch from the development branch and then create a pull request :)
