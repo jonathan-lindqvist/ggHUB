@@ -12,19 +12,17 @@ Rails.application.routes.draw do
 
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
   get '/feed', to: 'microposts#index'
-
-  resources :users do
-    member do
-      get :following, :followers
-    end
-  end
 
   patch '/roleupdate', to: 'users#roleupdate'
   put '/roleupdate', to: 'users#roleupdate'
