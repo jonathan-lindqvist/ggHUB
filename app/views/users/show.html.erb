@@ -1,7 +1,7 @@
 <% provide(:title, @user.name) %>
 <div class="container">
-  <div class="row d-flex justify-content-between">
-    <aside>
+  <div class="row">
+    <aside class="col">
       <section>
           <%= link_to gravatar_for(@user, size: 80), @user, style: 'cursor:default;', class: 'ml-0'  %>
           <div class="ml-0">
@@ -20,7 +20,7 @@
         <%= render 'shared/stats' %>
       </section>
     </aside>
-    <div>
+    <div class="col">
       <%= render 'follow_form' if logged_in? %>
       <% if @user.microposts.any? %>
         <h3>Microposts (<%= @user.microposts.count %>)</h3>

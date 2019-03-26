@@ -9,6 +9,7 @@ class MicropostsController < ApplicationController
     if logged_in?
       @micropost  = current_user.microposts.build
       @feed_items = current_user.feed.paginate(page: params[:page])
+      @feed_mobile = current_user.feed
     end
   end
 
@@ -19,6 +20,7 @@ class MicropostsController < ApplicationController
       redirect_to '/feed'
     else
       @feed_items = []
+      @feed_mobile = []
       render 'microposts/index'
     end
   end
