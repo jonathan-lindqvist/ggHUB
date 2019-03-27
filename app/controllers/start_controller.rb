@@ -4,6 +4,6 @@
 class StartController < ApplicationController
   def index
     @players = User.order('created_at').last(15)
-    @articles = Article.last(5)
+    @articles = Article.first(5)
   end
 end

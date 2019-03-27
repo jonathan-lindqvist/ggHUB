@@ -1,3 +1,7 @@
+<% if current_user.role.include?("Admin") || current_user.role.include?("Journalist") || current_user.role.include?("Moderator") %>
+  <%= render 'shared/article_form'%>
+<% end %>
+
 <%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'mt-3') %>
 <% if @articles.any? %>
         <%= render @articles %>
