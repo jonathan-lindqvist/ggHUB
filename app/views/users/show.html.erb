@@ -7,7 +7,14 @@
           <div class="ml-0">
             <h1 class="m-0"><%= @user.name %></h1>
             <p style="color:gray;"><%= @user.role%></p>
-          </div>
+            <% if current_user.role == "Admin"%>
+              <h2>Update role for user</h2>
+              <%= form_for @user, url: {action: "roleupdate", id: @user.id} do |f| %>
+                <%= f.select :role, ['User', 'Moderator', 'Journalist'] %>
+                <%= f.submit "Update", class: "btn btn-primary" %>
+              <% end %>
+            <% end %>
+        </div>
       </section>
       <section>
         <%= render 'shared/stats' %>
