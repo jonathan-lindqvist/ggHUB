@@ -1,0 +1,9 @@
+<div id="article-<%= article.id %>" class="jumbotron shadow-sm">
+  <h1 class="display-4"><%= article.title %></h1>
+  <p class="lead"><%= article.content[0...100] %></p>
+  <hr class="my-4">
+  <p>Posted <%= time_ago_in_words(article.created_at) %></p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg shadow-sm" href="/articles/<%= article.id %>" role="button">Learn more</a>
+  </p>
+</div>  
