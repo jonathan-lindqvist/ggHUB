@@ -6,4 +6,9 @@
   <p class="lead">
     <a class="btn btn-primary btn-lg shadow-sm" href="/articles/<%= article.id %>" role="button">Learn more</a>
   </p>
+  <% if current_user?(article.user) %>
+      <%= link_to "Delete", article, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+      | <a href="/articles/<%= article.id %>/edit">Edit</a>
+    <% end %>
 </div>  
