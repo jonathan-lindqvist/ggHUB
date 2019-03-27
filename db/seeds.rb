@@ -51,9 +51,9 @@ followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
-users = User.order(:created_at).take(6)
+users2 = User.order(:created_at).take(6)
 50.times do
   title = Faker::Lorem.sentence(5)
   content = Faker::Lorem.sentence(5)
-  users.each { |user| user.articles.create!(title: title, content: content) }
+  users2.each { |user2| user2.articles.create!(title: title, content: content) }
 end

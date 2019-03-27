@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
+  get '/users/:id/articles', to: 'users#articles'
   resources :users do
     member do
       get :following, :followers

@@ -77,6 +77,12 @@ class UsersController < ApplicationController
     # rubocop:enable Rails/ActiveRecordAliases
   end
 
+  def articles
+    @user = User.find(params[:id])
+    @articles = @user.articles.paginate(page: params[:page])
+    render 'show_articles'
+  end
+
   private
 
   def user_params
