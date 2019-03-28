@@ -1,0 +1,22 @@
+language: ruby
+rvm:
+ - 2.2
+ - jruby
+
+ stages:
+  - test
+  - build
+
+test: 
+  stage: test
+  before_install:
+    - gem install bundler
+  script: 
+    - rake bundle
+
+build:
+  stage: build
+  before_install:
+    - gem install bundler
+  script: 
+    - rake bundle
