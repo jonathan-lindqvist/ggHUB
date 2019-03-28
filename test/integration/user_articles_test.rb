@@ -53,11 +53,51 @@ class UserArticlesTest < ActionDispatch::IntegrationTest
     assert_select 'ul.pagination', count: 2
     assert_select 'h1.display-4'
     assert_select 'p.lead'
+    assert_select 'a', text: 'Delete', count: 0
+    assert_select 'a', text: 'Edit', count: 0
   end
 
   test 'show article' do
     get "/articles/#{@user.articles[0].id}"
     assert_template 'articles/show'
     assert_select "h2##{@user.articles[0].id}"
+  end
+
+  test 'news page as allowed user' do
+    log_in_as(@user)
+    get '/articles'
+    assert_template 'articles/index'
+    assert_select 'a', text: 'Delete'
+    assert_select 'a', text: 'Edit'
+  end
+
+  test 'delete article' do
+    log_in_as(@user)
+    get '/articles'
+    assert_template 'articles/index'
+    assert_select 'a', text: 'Delete'
+    first_article = @user.articles.paginate(page: 1).first
+    assert_difference 'Article.count', -1 do
+      delete article_path(first_article)
+    end
+  end
+
+  test 'unsuccessful edit' do
+    log_in_as(@user)
+    get edit_article_path(@user.articles[0])
+    assert_template 'articles/edit'
+    patch article_path(@user.articles[0]), params: { article: { title: 'ajsjdkals', content: '' } }
+    assert_select 'div.alert-danger', text: 'The form contains 1 error.', count: 1
+    assert_template 'articles/edit'
+  end
+
+  test 'successful edit' do
+    log_in_as(@user)
+    get edit_article_path(@user.articles[0])
+    assert_template 'articles/edit'
+    patch article_path(@user.articles[0]), params: { article: { title: 'ajsjdkals', content: 'dasdasd' } }
+    follow_redirect!
+    assert_template 'articles/show'
+    assert_select 'div.alert-success', text: 'Article updated', count: 1
   end
 end

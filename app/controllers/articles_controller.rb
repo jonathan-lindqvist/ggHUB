@@ -62,6 +62,7 @@ class ArticlesController < ApplicationController
   end
 
   def allowed_user
-    redirect_to(root_url) unless current_user.role == 'Admin' || current_user.role == 'Journalist' || current_user.role == 'Moderator'
+    redirect_to(root_url) unless current_user.role == 'Admin' || current_user.role == 'Journalist' ||
+                                 current_user.role == 'Moderator'
   end
 end
