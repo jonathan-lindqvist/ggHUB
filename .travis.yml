@@ -1,9 +1,8 @@
 language: ruby
 rvm:
- - 2.2
  - jruby
 
 script: 
   - rake bundle
-  - gem install bundler
   - rake rubocop
+  - rails test
