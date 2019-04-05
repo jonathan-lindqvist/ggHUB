@@ -1,4 +1,19 @@
-script: 
+stages:
+  - test
+  - build
+
+rubocop:
+  stage: build
+  script: 
   - bundle exec gem install rubocop
   - bundle exec rake rubocop
+
+railstest:
+  stage: build
+  script: 
   - bundle exec rails test
+
+build:
+  stage: build
+  script: 
+  - bundle exec rails s
