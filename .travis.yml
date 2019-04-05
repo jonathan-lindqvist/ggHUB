@@ -1,15 +1,12 @@
-stages:
-  - test
-  - build
 
 rubocop:
-  stage: build
+  stage: test
   script: 
   - bundle exec gem install rubocop
   - bundle exec rake rubocop
 
 railstest:
-  stage: build
+  stage: test
   script: 
   - bundle exec rails test
 
