@@ -1,4 +1,3 @@
 script: 
-  - rake bundle
-  - rake rubocop
-  - rails test
+  - bundle exec rake rubocop
+  - bundle exec rails test
