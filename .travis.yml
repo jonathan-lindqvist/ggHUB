@@ -1,3 +1,4 @@
 script: 
+  - bundle exec gem install rubocop
   - bundle exec rake rubocop
   - bundle exec rails test
