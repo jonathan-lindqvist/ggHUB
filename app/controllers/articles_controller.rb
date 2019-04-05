@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
       flash[:success] = 'Article created!'
       redirect_to root_url
     else
-      flash[:danger] = 'Article failed!'
+      flash[:danger] = 'Failed article creation!'
       redirect_to '/articles'
     end
   end
