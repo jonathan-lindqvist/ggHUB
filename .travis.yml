@@ -1,20 +1,23 @@
 jobs:
   include:
     - stage: test
+      script: bundle exec gem install rubocop
+      script: bundle exec rake rubocop
+      script: bundle exec rails test
     - stage: build
+      script: bundle exec rails s
 
-rubocop:
-  stage: test
-  script: 
-  - bundle exec gem install rubocop
-  - bundle exec rake rubocop
+# rubocop:
+#   stage: test
+#   script: 
+ 
 
-railstest:
-  stage: test
-  script: 
-  - bundle exec rails test
+# railstest:
+#   stage: test
+#   script: 
+#   - bundle exec rails test
 
-build:
-  stage: build
-  script: 
-  - bundle exec rails s
+# build:
+#   stage: build
+#   script: 
+#   - bundle exec rails s
