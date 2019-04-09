@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
+  get '/users/:id/articles', to: 'users#articles'
   resources :users do
     member do
       get :following, :followers
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
   patch '/roleupdate', to: 'users#roleupdate'
   put '/roleupdate', to: 'users#roleupdate'
   
+  resources :articles
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]

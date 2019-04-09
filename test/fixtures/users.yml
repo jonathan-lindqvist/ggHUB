@@ -17,6 +17,15 @@ archer:
   activated: true
   activated_at: <%= Time.zone.now %>
 
+bob:
+  name: Bob Example
+  email: bob@example.com
+  password_digest: <%= User.digest('password') %>
+  admin: true
+  role: "Journalist"
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
 lana:
   name: Lana Kane
   email: hands@example.gov
