@@ -23,5 +23,9 @@ I have used rubocop before and I feel like it improves my code, it makes my code
 ### How to run it
 Assuming you have followed the instructions in [Run it locally](##run-it-locally) you can just run: `rake rubocop`
 
+## Travis CI
+I'm using Travis CI because it is a nice and easy way for me to test the application. Right now it is very simple, it only runs `rails test` and `rake rubocop`.
+You can find all the CI results [here](https://travis-ci.com/QvistJ/ggHUB/branches)
+
 ## Contribute to ggHUB
 All you have to do is fork it, create a feature branch from the development branch and then create a pull request :)
