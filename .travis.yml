@@ -7,18 +7,3 @@ jobs:
         - bundle exec rails test
     # - stage: build
     #   script: bundle exec rails s
-
-# rubocop:
-#   stage: test
-#   script: 
- 
-
-# railstest:
-#   stage: test
-#   script: 
-#   - bundle exec rails test
-
-# build:
-#   stage: build
-#   script: 
-#   - bundle exec rails s
