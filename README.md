@@ -5,12 +5,12 @@ Site: [https://gghub.herokuapp.com/](https://gghub.herokuapp.com/)
 Tournament site for your needs! :^)
 Can be used for siege, rocket leauge and many more!
 ## Summary 
-The primary goal with ggHUB for me is to learn, I have worked in Rails before but I want to become more comfortable using Rails. My second goal was to create something that actully could be used. And the last but not least was to create a project for my portfolio.
+The primary goal with ggHUB for me is to learn, I have worked in Rails before but I want to become more comfortable using Rails. My second goal was to create something that actully could be used. And last but not least was to create a project for my portfolio.
 
 ## Run it locally
 1. Make sure you have Ruby installed, you can check with this command; `ruby -v`
 2. Make sure you have the Ruby on Rails gem, otherwise run: `gem install rails`
-3. You now need to navigate to the directory and run: `bundle install`
+3. Navigate to the directory and run: `bundle install`
 4. Now you can finally run: `rails s`
 5. The site can now be accessed at localhost:3000
 
