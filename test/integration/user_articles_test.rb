@@ -60,7 +60,7 @@ class UserArticlesTest < ActionDispatch::IntegrationTest
   test 'show article' do
     get "/articles/#{@user.articles[0].id}"
     assert_template 'articles/show'
-    assert_select "h2##{@user.articles[0].id}"
+    assert_select "h1##{@user.articles[0].id}"
   end
 
   test 'news page as allowed user' do
