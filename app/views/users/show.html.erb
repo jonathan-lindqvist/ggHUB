@@ -17,7 +17,7 @@
         </div>
       </section>
       <section>
-        <% if @user.role.include?("Admin") || @user.role.include?("Journalist") || @user.role.include?("Moderator") || @user.articles.any? %>
+        <% if ["Admin", "Journalist", "Moderator"].include?(@user.role) || @user.articles.any? %>
           <a href="/users/<%=@user.id%>/articles">View <%=@user.name%> articles</a> 
         <% end %>
         <%= render 'shared/stats' %>
