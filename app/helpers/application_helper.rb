@@ -27,6 +27,8 @@ module ApplicationHelper
                                        tables: true,
                                        underline: true,
                                        highlight: true)
-    markdown.render(text)
+    # rubocop:disable Rails/OutputSafety
+    markdown.render(text).html_safe
+    # rubocop:enable Rails/OutputSafety
   end
 end
