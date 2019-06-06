@@ -45,3 +45,4 @@ AllCops:
     - './bin/*'
     - 'Rakefile'
     - 'config.ru'
+    - 'vendor/bundle/**/*'
