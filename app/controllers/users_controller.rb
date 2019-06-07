@@ -8,7 +8,11 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: %i[destroy roleupdate]
 
   def index
-    @users = User.where(activated: true).paginate(page: params[:page])
+    if params[:player]
+      @users = User.where('name LIKE ?', "%#{params[:player]}%").where(activated: true).paginate(page: params[:page])
+    else
+      @users = User.where(activated: true).paginate(page: params[:page])
+    end
   end
 
   def show
@@ -87,7 +91,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :role,
-                                 :password_confirmation)
+                                 :password_confirmation, :player)
   end
 
   # Before filters
