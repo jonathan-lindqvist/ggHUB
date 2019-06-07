@@ -44,7 +44,7 @@ gem 'carrierwave',             '1.2.2'
 gem 'mini_magick',             '4.9.3'
 
 # Rubocop for linting
-gem 'rubocop', '~> 0.66.0', require: false
+gem 'rubocop', '~> 0.71.0', require: false
 
 group :production do
   gem 'pg'
