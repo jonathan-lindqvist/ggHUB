@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
     # rubocop:disable Style/AndOr
     redirect_to users_url and return unless @user.activated
@@ -55,14 +55,14 @@ class UsersController < ApplicationController
 
   def following
     @title = 'Following'
-    @user  = User.find(params[:id])
+    @user  = User.friendly.find(params[:id])
     @users = @user.following.paginate(page: params[:page])
     render 'show_follow'
   end
 
   def followers
     @title = 'Followers'
-    @user  = User.find(params[:id])
+    @user  = User.friendly.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
   end
@@ -94,7 +94,7 @@ class UsersController < ApplicationController
 
   # Confirms the correct user.
   def correct_user
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
     redirect_to(root_url) unless current_user?(@user)
   end
 

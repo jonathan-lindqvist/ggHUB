@@ -46,6 +46,9 @@ gem 'mini_magick',             '4.9.3'
 # Rubocop for linting
 gem 'rubocop', '~> 0.66.0', require: false
 
+# URL
+gem 'friendly_id'
+
 group :production do
   gem 'pg'
   gem 'fog'
