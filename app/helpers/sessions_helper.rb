@@ -20,6 +20,7 @@ module SessionsHelper
   end
 
   # Returns the current logged-in user (if any).
+  # rubocop:disable Rails/HelperInstanceVariable
   def current_user
     if (user_id = session[:user_id])
       @current_user ||= User.find_by(id: user_id)
@@ -31,6 +32,7 @@ module SessionsHelper
       end
     end
   end
+  # rubocop:enable Rails/HelperInstanceVariable
 
   # Returns true if the user is logged in, false otherwise.
   def logged_in?
@@ -45,11 +47,13 @@ module SessionsHelper
   end
 
   # Logs out the current user.
+  # rubocop:disable Rails/HelperInstanceVariable
   def log_out
     forget(current_user)
     session.delete(:user_id)
     @current_user = nil
   end
+  # rubocop:enable Rails/HelperInstanceVariable
 
   # Redirects to stored location (or to the default).
   def redirect_back_or(default)

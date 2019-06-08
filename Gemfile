@@ -7,7 +7,7 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.2'
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -36,7 +36,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', '>= 1.4.4', require: false
 gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate'
 
@@ -44,11 +44,12 @@ gem 'carrierwave',             '1.2.2'
 gem 'mini_magick',             '4.9.3'
 
 # Rubocop for linting
-gem 'rubocop', '~> 0.66.0', require: false
+gem 'rubocop', '~> 0.71.0', require: false
+gem 'rubocop-rails'
 
 group :production do
   gem 'pg'
-  gem 'fog'
+  gem 'fog', '~> 2.1.0'
 end
 
 group :development, :test do
@@ -70,7 +71,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 3.142.3'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 
