@@ -30,4 +30,14 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     get users_path
     assert_select 'a', text: 'delete', count: 0
   end
+
+  test 'search for user' do
+    log_in_as(@admin)
+    get users_path
+    assert_template 'users/index'
+    assert_select 'input.btn'
+    get '/users', params: { player: 'Sterl' }
+    assert_template 'users/index'
+    assert_select 'a[href=?]', user_path(@non_admin), text: 'Sterling Archer'
+  end
 end
