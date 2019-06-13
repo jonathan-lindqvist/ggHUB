@@ -1,6 +1,14 @@
 <div class="container">
   <% provide(:title, 'All players') %>
-  <h1>All players</h1>
+  <div class="d-flex align-items-center">
+    <h1 class="w-50">All players</h1>
+    <div class="d-flex w-50 justify-content-end">
+      <%= form_tag('/users', method: :get, class: "d-flex flex-row") do %>
+        <%= text_field_tag :player, params[:player], class: "form-control mr-2" %>
+        <%= submit_tag 'Search', class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 
   <%= will_paginate(@users, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
 

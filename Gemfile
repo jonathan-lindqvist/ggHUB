@@ -43,6 +43,8 @@ gem 'bootstrap-will_paginate'
 gem 'carrierwave',             '1.2.2'
 gem 'mini_magick',             '4.9.3'
 
+gem 'redcarpet'
+
 # Rubocop for linting
 gem 'rubocop', '~> 0.71.0', require: false
 gem 'rubocop-rails'
