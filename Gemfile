@@ -51,7 +51,7 @@ gem 'rubocop-rails'
 
 group :production do
   gem 'pg'
-  gem 'fog', '~> 2.1.0'
+  # gem 'fog', '~> 2.1.0'
 end
 
 group :development, :test do
