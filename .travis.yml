@@ -1,3 +1,9 @@
+language: ruby
+rvm:
+  - 2.6.1
+
+# bundler_args: config force_ruby_platform true
+
 jobs:
   include:
     - stage: test
