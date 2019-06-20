@@ -1,0 +1,18 @@
+<% provide(:title, "#{@user.name} Articles") %>
+<div class="container">
+  <div class="row">
+    <aside class="col">
+      <section>
+        <%= gravatar_for @user %>
+        <h1><%= @user.name %></h1>
+        <span><%= link_to "View profile", @user %></span>
+        <span><b>Articles:</b> <%= @user.articles.count %></span>
+      </section>
+      <div class="col">
+      <% if @articles.any? %>
+        <%= render @articles %>
+      <% end %>
+    </div>
+    </aside>
+  </div>
+</div>

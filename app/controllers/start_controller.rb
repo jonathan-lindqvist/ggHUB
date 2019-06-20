@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
+# Will only fetch the latest players and tournaments
 class StartController < ApplicationController
   def index
-    if logged_in?
-      @micropost  = current_user.microposts.build
-      @feed_items = current_user.feed.paginate(page: params[:page])
-    end
+    @players = User.order('created_at').last(15)
+    @articles = Article.first(5)
   end
 end

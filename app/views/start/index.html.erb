@@ -1,61 +1,37 @@
 <div class="container-fluid">
   <div class="row justify-content-around">
-    <div class="col-2">
+    <div class="col-2 pl-0 d-none d-lg-block">
       <h5>New Players</h5>
     </div>
-    <div class="col-6">
-      <h3>News</h3>
+    <div class="col-6 d-none d-lg-block">
+      <h3>News (<%= @articles.count %>)</h3>
     </div>
-    <div class="col-2">
+    <div class="col-2 d-none d-lg-block">
       <h5>New Tournaments</h5>
     </div>
   </div>
   <div class="row justify-content-around">
-    <div class="col-2">
-      <p class=" mt-2">Lorem saIUDghasijudasjuhdi sadjgsdaslk  jhasjkdhajkhs asjhdjsahdasl sad Lorem saIUDghasijudasjuhdi sadjgsdaslk  jhasjkdhajkhs asjhdjsahdasl sad Lorem saIUDghasijudasjuhdi sadjgsdaslk  jhasjkdhajkhs asjhdjsahdasl sad Lorem saIUDghasijudasjuhdi sadjgsdaslk  jhasjkdhajkhs asjhdjsahdasl sad Lorem saIUDghasijudasjuhdi sadjgsdaslk  jhasjkdhajkhs asjhdjsahdasl sad Lorem saIUDghasijudasjuhdi sadjgsdaslk  jhasjkdhajkhs asjhdjsahdasl sad </p>
-    </div>
-    <div class="col-6">
-      <!-- TODO: move this to feed -->
-      <% if logged_in? %>
-        <div class="row">
-          <aside class="col-md-4">
-            <section class="user_info">
-              <%= render 'shared/user_info' %>
-            </section>
-            <section class="stats">
-              <%= render 'shared/stats' %>
-            </section>
-            <section class="micropost_form">
-              <%= render 'shared/micropost_form' %>
-            </section>
-          </aside>
-          <div class="col-md-8">
-            <h3>Micropost Feed</h3>
-            <%= render 'shared/feed' %>
-          </div>
-        </div>
-      <% else %>
-        <div class="jumbotron">
-          <h1 class="display-4">Hello, world!</h1>
-          <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-          <hr class="my-4">
-          <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-          <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    <div class="col-2 column list-group d-none d-lg-block">
+      <% @players.each do |player| %>
+        <% if player.activated != false%>
+          <a href="/users/<%=player.id%>" class="list-group-item list-group-item-action">
+            <%= gravatar_for player, size: 30 %>
+            <%= player.name %>
+          </a>
+        <% else %>
+          <p class="list-group-item text-muted">
+            <%= disabled_gravatar_for(player, size: 30) %>
+            <%= player.name %>
           </p>
-        </div>  
-        <div class="jumbotron">
-          <h1 class="display-4">Hello, world!</h1>
-          <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-          <hr class="my-4">
-          <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-          <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-          </p>
-        </div>
+        <% end %>
       <% end %>
     </div>
-    <div class="col-2">
+    <div class="col col-lg-6">
+      <% if @articles.any? %>
+        <%= render @articles %>
+      <% end %>
+    </div>
+    <div class="col-2 d-none d-lg-block">
       <p class=" mt-2">Lorem saIUDghasijudasjuhdi sadjgsdaslk  jhasjkdhajkhs asjhdjsahdasl sad Lorem saIUDghasijudasjuhdi sadjgsdaslk  jhasjkdhajkhs asjhdjsahdasl sad Lorem saIUDghasijudasjuhdi sadjgsdaslk  jhasjkdhajkhs asjhdjsahdasl sad Lorem saIUDghasijudasjuhdi sadjgsdaslk  jhasjkdhajkhs asjhdjsahdasl sad Lorem saIUDghasijudasjuhdi sadjgsdaslk  jhasjkdhajkhs asjhdjsahdasl sad </p>
     </div>
   </div>

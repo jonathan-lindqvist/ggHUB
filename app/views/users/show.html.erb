@@ -1,24 +1,33 @@
 <% provide(:title, @user.name) %>
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-    <aside class="col-md-4">
-      <section class="user_info">
-        <h1>
-          <%= gravatar_for @user %>
-          <%= @user.name %>
-        </h1>
+    <aside class="col">
+      <section>
+          <%= link_to gravatar_for(@user, size: 80), @user, style: 'cursor:default;', class: 'ml-0'  %>
+          <div class="ml-0">
+            <h1 class="m-0"><%= @user.name %></h1>
+            <p style="color:gray;"><%= @user.role%></p>
+            <% if current_user.role == "Admin"%>
+              <h2>Update role for user</h2>
+              <%= form_for @user, url: {action: "roleupdate", id: @user.id} do |f| %>
+                <%= f.select :role, ['User', 'Moderator', 'Journalist'] %>
+                <%= f.submit "Update", class: "btn btn-primary" %>
+              <% end %>
+            <% end %>
+        </div>
       </section>
-      <section class="stats">
+      <section>
+        <% if ["Admin", "Journalist", "Moderator"].include?(@user.role) || @user.articles.any? %>
+          <a href="/users/<%=@user.id%>/articles">View <%=@user.name%> articles</a> 
+        <% end %>
         <%= render 'shared/stats' %>
       </section>
     </aside>
-    <div class="col-md-8">
+    <div class="col">
       <%= render 'follow_form' if logged_in? %>
       <% if @user.microposts.any? %>
         <h3>Microposts (<%= @user.microposts.count %>)</h3>
-        <ol class="microposts">
-          <%= render @microposts %>
-        </ol>
+        <%= render @microposts %>
         <%= will_paginate(@microposts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
       <% end %>
     </div>

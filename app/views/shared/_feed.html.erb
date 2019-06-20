@@ -1,6 +1,11 @@
-<% if @feed_items.any? %>
-  <ol class="microposts">
+<div class="d-none d-lg-block">
+  <% if @feed_items.any? %>
     <%= render @feed_items %>
-  </ol>
-  <%= will_paginate(@feed_items, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
-<% end %>
+    <%= will_paginate(@feed_items, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: "d-flex flex-wrap") %>
+  <% end %>
+</div>
+<div class="d-block d-lg-none">
+  <% if @feed_mobile.any? %>
+    <%= render @feed_mobile %>
+  <% end %>
+</div>
