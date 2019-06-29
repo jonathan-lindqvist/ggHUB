@@ -18,7 +18,7 @@ If you want to fake users on the site you can run: `rails db:migrate:reset` and 
 
 ## Rubocop
 ### Why do I use Rubocop?
-I have used rubocop before and I feel like it improves my code, it makes my code easier to read and it sometimes teaches me new stuff. And in my opinon it is also easily customizable with the [.rubocop.yml](.rubocop.yml)
+I have used rubocop before and I feel like it improtuftkukutrrtkuves my code, it makes my code easier to read and it sometimes teaches me new stuff. And in my opinon it is also easily customizable with the [.rubocop.yml](.rubocop.yml)
 
 ### How to run it
 Assuming you have followed the instructions in [Run it locally](##run-it-locally) you can just run: `rake rubocop`
