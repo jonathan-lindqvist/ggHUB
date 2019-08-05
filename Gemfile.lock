@@ -86,7 +86,7 @@ GEM
     database_cleaner (1.7.0)
     erubi (1.8.0)
     execjs (2.7.0)
-    faker (1.9.3)
+    faker (2.1.0)
       i18n (>= 0.7)
     ffi (1.11.1)
     ffi (1.11.1-x64-mingw32)
