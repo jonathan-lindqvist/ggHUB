@@ -37,7 +37,7 @@ gem 'bcrypt', '~> 3.1.13'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-gem 'will_paginate',           '3.1.7'
+gem 'will_paginate',           '3.1.8'
 gem 'bootstrap-will_paginate'
 
 gem 'carrierwave',             '1.3.1'
