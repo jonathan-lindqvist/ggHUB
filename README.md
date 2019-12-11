@@ -1,4 +1,5 @@
 # ggHUB
+## (archived) 
 Site: [https://gghub.herokuapp.com/](https://gghub.herokuapp.com/)
 
 [![Build Status](https://travis-ci.com/QvistJ/ggHUB.svg?branch=master)](https://travis-ci.com/QvistJ/ggHUB)
